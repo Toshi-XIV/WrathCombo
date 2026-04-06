@@ -1,8 +1,6 @@
 using Dalamud.Interface.Colors;
 using WrathCombo.CustomComboNS.Functions;
 using WrathCombo.Extensions;
-using WrathCombo.Resources.Localization.JobConfigs;
-using static WrathCombo.Window.Text;
 using static WrathCombo.Window.Functions.UserConfig;
 namespace WrathCombo.Combos.PvE;
 
@@ -18,7 +16,7 @@ internal partial class MCH
 
                 case Preset.MCH_ST_Adv_Opener:
                     DrawHorizontalRadioButton(MCH_SelectedOpener,
-                        Generics.StandardOpener, "Uses Standard Lvl 100 opener", 0);
+                        "Standard opener", "Uses Standard Lvl 100 opener", 0);
 
                     DrawHorizontalRadioButton(MCH_SelectedOpener,
                         $"Early {Wildfire.ActionName()} opener", $"Uses Early {Wildfire.ActionName()} Lvl 100 opener", 1);
@@ -28,26 +26,26 @@ internal partial class MCH
 
                 case Preset.MCH_ST_Adv_WildFire:
                     DrawHorizontalRadioButton(MCH_ST_WildfireBossOption,
-                        Generics.AllContent, $"Use {Wildfire.ActionName()} regardless of content.", 0);
+                        "All content", $"Use {Wildfire.ActionName()} regardless of content.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_WildfireBossOption,
-                        Generics.BossOnlyContent, $"Only use {Wildfire.ActionName()} when the targeted enemy is a boss.", 1);
+                        "Bosses Only", $"Only use {Wildfire.ActionName()} when the targeted enemy is a boss.", 1);
 
                     if (MCH_ST_WildfireBossOption == 0)
                     {
                         DrawSliderInt(0, 50, MCH_ST_WildfireHPOption,
-                            Generics.StopEnemyHpPercent);
+                            "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                         ImGui.Indent();
 
                         ImGui.TextColored(ImGuiColors.DalamudYellow,
-                            Generics.EnemyTypeCheck);
+                            "Select what kind of enemies the HP check should be applied to:");
 
                         DrawHorizontalRadioButton(MCH_ST_WildfireBossHPOption,
-                            Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                            "Non-Bosses", "Only apply the HP check above to non-bosses.", 0);
 
                         DrawHorizontalRadioButton(MCH_ST_WildfireBossHPOption,
-                            Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                            "All Enemies", "Apply the HP check above to all enemies.", 1);
 
                         ImGui.Unindent();
                     }
@@ -55,26 +53,26 @@ internal partial class MCH
 
                 case Preset.MCH_ST_Adv_Stabilizer:
                     DrawHorizontalRadioButton(MCH_ST_BarrelStabilizerBossOption,
-                        Generics.AllContent, $"Use {BarrelStabilizer.ActionName()} regardless of content.", 0);
+                        "All content", $"Use {BarrelStabilizer.ActionName()} regardless of content.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_BarrelStabilizerBossOption,
-                        Generics.BossOnlyContent, $"Only use {BarrelStabilizer.ActionName()} when the targeted enemy is a boss.", 1);
+                        "Bosses Only", $"Only use {BarrelStabilizer.ActionName()} when the targeted enemy is a boss.", 1);
 
                     if (MCH_ST_BarrelStabilizerBossOption == 0)
                     {
                         DrawSliderInt(0, 50, MCH_ST_BarrelStabilizerHPOption,
-                            Generics.StopEnemyHpPercent);
+                            "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                         ImGui.Indent();
 
                         ImGui.TextColored(ImGuiColors.DalamudYellow,
-                            Generics.EnemyTypeCheck);
+                            "Select what kind of enemies the HP check should be applied to:");
 
                         DrawHorizontalRadioButton(MCH_ST_BarrelStabilizerHPBossOption,
-                            Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                            "Non-Bosses", "Only apply the HP check above to non-bosses.", 0);
 
                         DrawHorizontalRadioButton(MCH_ST_BarrelStabilizerHPBossOption,
-                            Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                            "All Enemies", "Apply the HP check above to all enemies.", 1);
 
                         ImGui.Unindent();
                     }
@@ -82,18 +80,18 @@ internal partial class MCH
 
                 case Preset.MCH_ST_Adv_Hypercharge:
                     DrawSliderInt(0, 50, MCH_ST_HyperchargeHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(MCH_ST_HyperchargeBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only apply the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_HyperchargeBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Apply the HP check above to all enemies.", 1);
 
                     ImGui.Unindent();
                     break;
@@ -103,18 +101,18 @@ internal partial class MCH
                         $"Use {AutomatonQueen.ActionName()} at this battery threshold outside of Boss encounter.");
 
                     DrawSliderInt(0, 50, MCH_ST_QueenHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(MCH_ST_QueenBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_QueenBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
 
 
                     ImGui.Unindent();
@@ -122,7 +120,7 @@ internal partial class MCH
 
                 case Preset.MCH_ST_Adv_GaussRicochet:
                     DrawSliderInt(0, 2, MCH_ST_GaussRicoPool,
-                        Generics.ChargePool);
+                        "Number of Charges of to Save for Manual Use");
                     break;
 
                 case Preset.MCH_ST_Adv_Reassemble:
@@ -134,48 +132,48 @@ internal partial class MCH
                         "Use every minute", "Uses Reassemble every minute/whenever ur highest lvl tool is off cooldown.", 1);
 
                     DrawSliderInt(0, 50, MCH_ST_ReassembleHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(MCH_ST_ReassembleBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only apply the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_ReassembleBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Apply the HP check above to all enemies.", 1);
 
                     ImGui.Unindent();
 
                     DrawSliderInt(0, 1, MCH_ST_ReassemblePool,
-                        Generics.ChargePool);
+                        "Number of Charges to Save for Manual Use");
 
                     break;
 
                 case Preset.MCH_ST_Adv_Tools:
 
                     DrawSliderInt(0, 50, MCH_ST_ToolsHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(MCH_ST_ToolsBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only apply the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(MCH_ST_ToolsBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Apply the HP check above to all enemies.", 1);
 
                     ImGui.Unindent();
                     break;
 
                 case Preset.MCH_ST_Adv_QueenOverdrive:
                     DrawSliderInt(0, 100, MCH_ST_QueenOverDriveHPThreshold,
-                        Generics.StopFriendlyHpPercent100);
+                        "HP% for the target to be at or under");
                     break;
 
                 case Preset.MCH_ST_Adv_SecondWind:
@@ -192,12 +190,12 @@ internal partial class MCH
                         $"Stop Using {Reassemble.ActionName()} When Target HP% is at or Below (Set to 0 to Disable This Check)");
 
                     DrawSliderInt(0, 2, MCH_AoE_ReassemblePool,
-                        Generics.ChargePool);
+                        "Number of Charges to Save for Manual Use");
                     break;
 
                 case Preset.MCH_AoE_Adv_QueenOverdrive:
                     DrawSliderInt(0, 100, MCH_AoE_QueenOverDriveHPThreshold,
-                        Generics.StopFriendlyHpPercent100);
+                        "HP% for the target to be at or under");
                     break;
 
                 case Preset.MCH_AoE_Adv_SecondWind:
@@ -216,21 +214,21 @@ internal partial class MCH
                 case Preset.MCH_AoE_Adv_FlameThrower:
 
                     DrawHorizontalRadioButton(MCH_AoE_FlamethrowerMovement,
-                        Generics.StationaryOnly, FormatAndCache(Generics.UseActionOnlyWhileStationary, Flamethrower.ActionName()), 0);
+                        "Stationary Only", $"Use {Flamethrower.ActionName()} only while stationary", 0);
 
                     DrawHorizontalRadioButton(MCH_AoE_FlamethrowerMovement,
-                        Generics.AnyMovement, FormatAndCache(Generics.Uses0RegardlessOfAnyMovementConditions, Flamethrower.ActionName()), 1);
+                        "Any Movement", $"Use {Flamethrower.ActionName()} regardless of any movement conditions.", 1);
 
                     ImGui.Spacing();
                     if (MCH_AoE_FlamethrowerMovement == 0)
                     {
                         ImGui.SetCursorPosX(48);
                         DrawSliderFloat(0, 3, MCH_AoE_FlamethrowerTimeStill,
-                            Generics.StationaryDelayCheck, decimals: 1);
+                            " Stationary Delay Check (in seconds):", decimals: 1);
                     }
 
                     DrawSliderInt(0, 50, MCH_AoE_FlamethrowerHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
                     ImGui.Indent();
                     break;
 

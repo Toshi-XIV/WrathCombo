@@ -15,7 +15,6 @@ using WrathCombo.Services;
 using WrathCombo.Services.IPC_Subscriber;
 using WrathCombo.API.Enum;
 using WrathCombo.Resources.Localization.UI.AutoRotation;
-using static WrathCombo.Window.Text.Misc.Strings;
 
 #endregion
 
@@ -242,15 +241,13 @@ internal class AutoRotationTab : ConfigWindow
                 AutoRotationUI.Checkbox_AutoRez, ref cfg.HealerSettings.AutoRez, "AutoRez");
             ImGuiComponents.HelpMarker(
                 Text.FormatAndCache(AutoRotationUI.HelpText_AutoRez,
-                    Job.CNJ.Shorthand(),
+                    Job.CNJ.Shorthand(), 
                     Job.WHM.Shorthand(),
                     Job.SCH.Shorthand(),
                     Job.AST.Shorthand(),
                     Job.SGE.Shorthand(),
                     // Occult Crescent Phantom Chemist Revive
-                    Text.Misc.GetString(OccultCrescentContentName),
-                    Text.Misc.GetString(OccultPhantomChemist),
-                    OccultCrescent.Revive.ActionName()
+                    OccultCrescent.ContentName, Svc.Data.GetExcelSheet<MKDSupportJob>().GetRow(10).Name, OccultCrescent.Revive.ActionName()
                 )
             );
             var autoRez = (bool)P.IPC.GetAutoRotationConfigState(AutoRotationConfigOption.AutoRez)!;
@@ -264,9 +261,9 @@ internal class AutoRotationTab : ConfigWindow
                 ImGuiExtensions.Prefix(false);
                 changed |= ImGui.Checkbox(
                     Text.FormatAndCache(
-                                AutoRotationUI.Checkbox_AutoRezRequireSwift,
-                                RoleActions.Magic.Swiftcast.ActionName(),
-                                RDM.Buffs.Dualcast.StatusName()),
+                                AutoRotationUI.Checkbox_AutoRezRequireSwift, 
+                                RoleActions.Magic.Swiftcast.ActionName(), 
+                                RDM.Buffs.Dualcast.StatusName()), 
                     ref cfg.HealerSettings.AutoRezRequireSwift);
                 ImGuiComponents.HelpMarker(
                     Text.FormatAndCache(
@@ -314,7 +311,7 @@ internal class AutoRotationTab : ConfigWindow
             changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
             	Text.FormatAndCache(
                     AutoRotationUI.Checkbox_AutoCleanse,
-                    RoleActions.Healer.Esuna.ActionName()),
+                    RoleActions.Healer.Esuna.ActionName()), 
                 ref cfg.HealerSettings.AutoCleanse, "AutoCleanse");
             ImGuiComponents.HelpMarker(
                 Text.FormatAndCache(
@@ -333,7 +330,7 @@ internal class AutoRotationTab : ConfigWindow
                 Text.FormatAndCache(
                     AutoRotationUI.HelpText_ManageKardia,
                     SGE.Kardia.ActionName()));
-
+            
             if (cfg.HealerSettings.ManageKardia)
             {
                 ImGuiExtensions.Prefix(cfg.HealerSettings.ManageKardia);
@@ -376,11 +373,6 @@ internal class AutoRotationTab : ConfigWindow
                 AutoRotationUI.Checkbox_HandleRaidwides,
                 ref cfg.HealerSettings.HandleRaidwides);
             ImGuiComponents.HelpMarker(Text.FormatAndCache(AutoRotationUI.HelpText_HandleRaidwides, SGE.Eukrasia.ActionName()));
-
-            changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                AutoRotationUI.Checkbox_HandleTankbusters,
-                ref cfg.HealerSettings.HandleTankbusters);
-            ImGuiComponents.HelpMarker(Text.FormatAndCache(AutoRotationUI.HelpText_HandleTankbusters, SGE.Eukrasia.ActionName()));
 
         }
 

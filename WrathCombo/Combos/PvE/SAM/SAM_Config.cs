@@ -2,7 +2,6 @@ using ECommons.ImGuiMethods;
 using System.Numerics;
 using WrathCombo.CustomComboNS.Functions;
 using WrathCombo.Extensions;
-using WrathCombo.Resources.Localization.JobConfigs;
 using WrathCombo.Window.Functions;
 using static WrathCombo.Window.Functions.UserConfig;
 namespace WrathCombo.Combos.PvE;
@@ -48,13 +47,13 @@ internal partial class SAM
 
                 case Preset.SAM_ST_CDs_UseHiganbana:
                     DrawSliderInt(0, 100, SAM_ST_HiganbanaBossOption,
-                        Generics.BossOnlyHpPercent);
+                        "Bosses Only. Stop using at Enemy HP %.");
 
                     DrawSliderInt(0, 100, SAM_ST_HiganbanaBossAddsOption,
-                        Generics.BossEncounterNonBossHpPercent);
+                        "Boss Encounter Non Bosses. Stop using at Enemy HP %.");
 
                     DrawSliderInt(0, 100, SAM_ST_HiganbanaTrashOption,
-                        Generics.NonBossHpPercent);
+                        "Non boss encounter. Stop using at Enemy HP %.");
 
                     ImGui.Indent();
                     DrawSliderInt(0, 15, SAM_ST_HiganbanaRefresh,
@@ -127,13 +126,13 @@ internal partial class SAM
 
                 case Preset.SAM_ST_TrueNorth:
                     DrawSliderInt(0, 1, SAM_ST_ManualTN,
-                        Generics.ChargePool);
+                        "How many charges to keep for manual usage.");
                     break;
 
                 case Preset.SAM_ST_Meditate:
                     ImGui.SetCursorPosX(48f.Scale());
                     DrawSliderFloat(0, 3, SAM_ST_MeditateTimeStill,
-                        Generics.StationaryDelayCheck, decimals: 1);
+                        " Stationary Delay Check (in seconds):", decimals: 1);
                     break;
 
                 case Preset.SAM_ST_ComboHeals:

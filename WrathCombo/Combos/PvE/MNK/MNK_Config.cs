@@ -1,7 +1,6 @@
 using Dalamud.Interface.Colors;
 using WrathCombo.CustomComboNS.Functions;
 using WrathCombo.Extensions;
-using WrathCombo.Resources.Localization.JobConfigs;
 using static WrathCombo.Window.Functions.UserConfig;
 namespace WrathCombo.Combos.PvE;
 
@@ -36,18 +35,18 @@ internal partial class MNK
                 case Preset.MNK_STUseBrotherhood:
 
                     DrawSliderInt(0, 50, MNK_ST_BHHPThreshold,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(MNK_ST_BHBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(MNK_ST_BHBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
 
                     ImGui.Unindent();
                     break;
@@ -55,18 +54,18 @@ internal partial class MNK
                 case Preset.MNK_STUseROF:
 
                     DrawSliderInt(0, 50, MNK_ST_RoFHPThreshold,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(MNK_ST_RoFBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(MNK_ST_RoFBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
 
                     ImGui.Unindent();
                     break;
@@ -74,25 +73,25 @@ internal partial class MNK
                 case Preset.MNK_STUseROW:
 
                     DrawSliderInt(0, 50, MNK_ST_RoWHPThreshold,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(MNK_ST_RoWBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(MNK_ST_RoWBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
 
                     ImGui.Unindent();
                     break;
 
                 case Preset.MNK_STUseTrueNorth:
                     DrawSliderInt(0, 1, MNK_ManualTN,
-                        Generics.ChargePool);
+                        "How many charges to keep for manual usage.");
                     break;
 
                 case Preset.MNK_ST_ComboHeals:
@@ -150,7 +149,7 @@ internal partial class MNK
 
                 case Preset.MNK_Retarget_Thunderclap:
                     DrawAdditionalBoolChoice(MNK_Thunderclap_FieldMouseover,
-                        Generics.FieldMouseover, "Add Field Mouseover targeting.");
+                        "Add Field Mouseover", "Add Field Mouseover targeting.");
                     break;
 
                 case Preset.MNK_Basic_BeastChakras:

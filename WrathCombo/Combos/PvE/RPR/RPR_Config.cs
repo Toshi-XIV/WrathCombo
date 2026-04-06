@@ -1,7 +1,6 @@
 using Dalamud.Interface.Colors;
 using WrathCombo.CustomComboNS.Functions;
 using WrathCombo.Extensions;
-using WrathCombo.Resources.Localization.JobConfigs;
 using static WrathCombo.Window.Functions.UserConfig;
 namespace WrathCombo.Combos.PvE;
 
@@ -21,18 +20,18 @@ internal partial class RPR
 
                 case Preset.RPR_ST_ArcaneCircle:
                     DrawSliderInt(0, 50, RPR_ST_ArcaneCircleHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(RPR_ST_ArcaneCircleBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(RPR_ST_ArcaneCircleBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
 
                     ImGui.Unindent();
                     break;
@@ -55,7 +54,7 @@ internal partial class RPR
 
                 case Preset.RPR_ST_TrueNorthDynamic:
                     DrawSliderInt(0, 1, RPR_ManualTN,
-                        Generics.ChargePool);
+                        "How many charges to keep for manual usage.");
 
                     DrawAdditionalBoolChoice(RPR_ST_TrueNorthDynamicHoldCharge,
                         "Hold True North for Gluttony Option", "Will hold the last charge of True North for use with Gluttony, even when out of position for Gibbet/Gallows.\n" +

@@ -1,7 +1,6 @@
 using Dalamud.Interface.Colors;
 using WrathCombo.CustomComboNS.Functions;
 using WrathCombo.Extensions;
-using WrathCombo.Resources.Localization.JobConfigs;
 using static WrathCombo.Window.Functions.UserConfig;
 namespace WrathCombo.Combos.PvE;
 
@@ -24,31 +23,31 @@ internal partial class VPR
 
                 case Preset.VPR_ST_SerpentsIre:
                     DrawSliderInt(0, 50, VPR_ST_SerpentsIreHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(VPR_ST_SerpentsIreBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(VPR_ST_SerpentsIreBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
 
                     ImGui.Unindent();
                     break;
 
                 case Preset.VPR_ST_Reawaken:
                     DrawSliderInt(0, 100, VPR_ST_ReawakenBossOption,
-                        Generics.BossOnlyHpPercent);
+                        "Bosses Only. Stop using at Enemy HP %.");
 
                     DrawSliderInt(0, 100, VPR_ST_ReawakenBossAddsOption,
-                        Generics.BossEncounterNonBossHpPercent);
+                        "Boss Encounter Non Bosses. Stop using at Enemy HP %.");
 
                     DrawSliderInt(0, 100, VPR_ST_ReawakenTrashOption,
-                        Generics.NonBossHpPercent);
+                        "Non boss encounter. Stop using at Enemy HP %.");
 
                     DrawSliderInt(0, 5, VPR_ST_ReAwakenAlwaysUse,
                         $"Set a HP% threshold to use {Reawaken.ActionName()} whenever available. (Bosses Only)");
@@ -74,7 +73,7 @@ internal partial class VPR
 
                 case Preset.VPR_TrueNorthDynamic:
                     DrawSliderInt(0, 1, VPR_ManualTN,
-                        Generics.ChargePool);
+                        "How many charges to keep for manual usage.");
 
                     DrawAdditionalBoolChoice(VPR_ST_TrueNorthDynamicHoldCharge,
                         "Hold True North for Vicewinder Option", "Will hold the last charge of True North for use with Vicewinder, even when out of position for normal GCD.\n" +
@@ -95,7 +94,7 @@ internal partial class VPR
 
                 case Preset.VPR_AoE_SerpentsIre:
                     DrawSliderInt(0, 100, VPR_AoE_SerpentsIreHPThreshold,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using when target HP% is at or below (Set to 0 to Disable This Check)");
                     break;
 
                 case Preset.VPR_AoE_UncoiledFury:
@@ -155,7 +154,7 @@ internal partial class VPR
 
                 case Preset.VPR_Retarget_Slither:
                     DrawAdditionalBoolChoice(VPR_Slither_FieldMouseover,
-                        Generics.FieldMouseover, "Add Field Mouseover targetting");
+                        "Add Field Mouseover", "Add Field Mouseover targetting");
                     break;
 
                 #endregion

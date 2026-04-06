@@ -1,5 +1,4 @@
 ﻿using WrathCombo.CustomComboNS.Functions;
-using WrathCombo.Resources.Localization.JobConfigs;
 using WrathCombo.Window.Functions;
 using static WrathCombo.Window.Functions.UserConfig;
 
@@ -21,22 +20,22 @@ namespace WrathCombo.Combos.PvE
                 {
                     case Preset.Variant_Tank_Cure:
                         DrawSliderInt(1, 80, Variant_Tank_Cure,
-                            Generics.StopFriendlyHpPercent100,
+                            "HP% to be at or under",
                             itemWidth: 200f, sliderIncrement: SliderIncrements.Fives);
                         break;
                     case Preset.Variant_PhysRanged_Cure:
                         DrawSliderInt(1, 80, Variant_PhysRanged_Cure,
-                            Generics.StopFriendlyHpPercent100,
+                            "HP% to be at or under",
                             itemWidth: 200f, sliderIncrement: SliderIncrements.Fives);
                         break;
                     case Preset.Variant_Melee_Cure:
                         DrawSliderInt(1, 80, Variant_Melee_Cure,
-                            Generics.StopFriendlyHpPercent100,
+                            "HP% to be at or under",
                             itemWidth: 200f, sliderIncrement: SliderIncrements.Fives);
                         break;
                     case Preset.Variant_Magic_Cure:
                         DrawSliderInt(1, 80, Variant_Magic_Cure,
-                            Generics.StopFriendlyHpPercent100,
+                            "HP% to be at or under",
                             itemWidth: 200f, sliderIncrement: SliderIncrements.Fives);
                         break;
                 }

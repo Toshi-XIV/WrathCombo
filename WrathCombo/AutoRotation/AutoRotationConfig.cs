@@ -55,6 +55,5 @@ public class HealerSettings
     public bool IncludeNPCs = false;
     public bool HealerAlwaysHardTarget = false;
     public bool HandleRaidwides = false;
-    public bool HandleTankbusters = false;
 
 }

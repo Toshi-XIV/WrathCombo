@@ -2,10 +2,7 @@ using Dalamud.Interface.Colors;
 using ECommons.ImGuiMethods;
 using WrathCombo.CustomComboNS.Functions;
 using WrathCombo.Data;
-using WrathCombo.Extensions;
-using WrathCombo.Resources.Localization.JobConfigs;
 using WrathCombo.Window.Functions;
-using static WrathCombo.Window.Text;
 using static WrathCombo.Window.Functions.UserConfig;
 using BossAvoidance = WrathCombo.Combos.PvE.All.Enums.BossAvoidance;
 using PartyRequirement = WrathCombo.Combos.PvE.All.Enums.PartyRequirement;
@@ -22,66 +19,66 @@ internal partial class PLD
                 #region Combo Mitigations
 
                 case Preset.PLD_ST_SimpleMode:
-                    DrawHorizontalRadioButton(PLD_ST_MitOptions, Generics.IncludeSimpleMitigations, Generics.EnablesTheUseOfMitigations, 0);
-                    DrawHorizontalRadioButton(PLD_ST_MitOptions, Generics.ExcludeSimpleMitigations, Generics.DisablesTheUseOfMitigations, 1);
+                    DrawHorizontalRadioButton(PLD_ST_MitOptions, "Include Simple Mitigations", "Enables the use of mitigations.", 0);
+                    DrawHorizontalRadioButton(PLD_ST_MitOptions, "Exclude Simple Mitigations", "Disables the use of mitigations.", 1);
                     break;
 
                 case Preset.PLD_AoE_SimpleMode:
-                    DrawHorizontalRadioButton(PLD_AoE_MitOptions, Generics.IncludeSimpleMitigations, Generics.EnablesTheUseOfMitigations, 0);
-                    DrawHorizontalRadioButton(PLD_AoE_MitOptions, Generics.ExcludeSimpleMitigations, Generics.DisablesTheUseOfMitigations, 1);
+                    DrawHorizontalRadioButton(PLD_AoE_MitOptions, "Include Simple Mitigations", "Enables the use of mitigations.", 0);
+                    DrawHorizontalRadioButton(PLD_AoE_MitOptions, "Exclude Simple Mitigations", "Disables the use of mitigations.", 1);
                     break;
 
                 case Preset.PLD_ST_AdvancedMode:
-                    DrawHorizontalRadioButton(PLD_ST_Advanced_MitOptions, Generics.IncludeAdvancedMitigations , Generics.EnablesTheUseOfMitigations, 0);
-                    DrawHorizontalRadioButton(PLD_ST_Advanced_MitOptions, Generics.ExcludeAdvancedMitigations, Generics.DisablesTheUseOfMitigations, 1);
+                    DrawHorizontalRadioButton(PLD_ST_Advanced_MitOptions, "Include Advanced Mitigations", "Enables the use of mitigations.", 0);
+                    DrawHorizontalRadioButton(PLD_ST_Advanced_MitOptions, "Exclude Advanced Mitigations", "Disables the use of mitigations.", 1);
                     break;
 
                 case Preset.PLD_AoE_AdvancedMode:
-                    DrawHorizontalRadioButton(PLD_AoE_Advanced_MitOptions, Generics.IncludeAdvancedMitigations , Generics.EnablesTheUseOfMitigations, 0);
-                    DrawHorizontalRadioButton(PLD_AoE_Advanced_MitOptions, Generics.ExcludeAdvancedMitigations, Generics.DisablesTheUseOfMitigations, 1);
+                    DrawHorizontalRadioButton(PLD_AoE_Advanced_MitOptions, "Include Advanced Mitigations", "Enables the use of mitigations.", 0);
+                    DrawHorizontalRadioButton(PLD_AoE_Advanced_MitOptions, "Exclude Advanced Mitigations", "Disables the use of mitigations.", 1);
                     break;
 
                 case Preset.PLD_Mitigation_NonBoss:
-                    DrawSliderFloat(0, 100, PLD_Mitigation_NonBoss_MitigationThreshold, Generics.StopBelowAverageEnemyHP, decimals: 0);
+                    DrawSliderFloat(0, 100, PLD_Mitigation_NonBoss_MitigationThreshold, "Stop using when average health percentage of nearby enemies is below set. \n(Set to 0 to disable this check) ", decimals: 0);
                     break;
                 case Preset.PLD_Mitigation_NonBoss_HallowedGroundEmergency:
-                    DrawSliderInt(1, 100, PLD_Mitigation_NonBoss_HallowedGround_Health, FormatAndCache(Generics.PlayerHPToUseAction, HallowedGround.ActionName()));
+                    DrawSliderInt(1, 100, PLD_Mitigation_NonBoss_HallowedGround_Health, "Player HP% to use Emergency Hallowed Ground at or below.");
                     break;
                 case Preset.PLD_Mitigation_NonBoss_DivineVeil:
-                    DrawSliderInt(1, 100, PLD_Mitigation_NonBoss_DivineVeil_Health, FormatAndCache(Generics.PlayerHPToUseAction, DivineVeil.ActionName()));
+                    DrawSliderInt(1, 100, PLD_Mitigation_NonBoss_DivineVeil_Health, "Player HP% to use Divine Veil at or below (100 = Disable check)");
                     break;
                 case Preset.PLD_Mitigation_Boss_SheltronOvercap:
                     DrawSliderInt(50, 100, PLD_Mitigation_Boss_SheltronOvercap_Threshold, "Oath Gauge required to Use Sheltron and prevent Overcap.");
                     break;
                 case Preset.PLD_Mitigation_Boss_SheltronTankbuster:
                     DrawDifficultyMultiChoice(PLD_Mitigation_Boss_SheltronTankbuster_Difficulty, PLD_Boss_Mit_DifficultyListSet,
-                        Generics.SelectWhatKindOfContentThisOptionAppliesTo);
+                        "Select which difficulties the ability should be used in:");
                     break;
 
                 case Preset.PLD_Mitigation_Boss_DivineVeil:
                     DrawDifficultyMultiChoice(PLD_Mitigation_Boss_DivineVeil_Difficulty, PLD_Boss_Mit_DifficultyListSet,
-                        Generics.SelectWhatKindOfContentThisOptionAppliesTo);
+                        "Select which difficulties the ability should be used in:");
                     break;
 
                 case Preset.PLD_Mitigation_Boss_Reprisal:
                     DrawDifficultyMultiChoice(PLD_Mitigation_Boss_Reprisal_Difficulty, PLD_Boss_Mit_DifficultyListSet,
-                        Generics.SelectWhatKindOfContentThisOptionAppliesTo);
+                        "Select which difficulties the ability should be used in:");
                     break;
 
                 case Preset.PLD_Mitigation_Boss_Rampart:
                     DrawDifficultyMultiChoice(PLD_Mitigation_Boss_Rampart_Difficulty, PLD_Boss_Mit_DifficultyListSet,
-                        Generics.SelectWhatKindOfContentThisOptionAppliesTo);
+                        "Select which difficulties the ability should be used in:");
                     break;
 
                 case Preset.PLD_Mitigation_Boss_Sentinel:
                     DrawDifficultyMultiChoice(PLD_Mitigation_Boss_Sentinel_Difficulty, PLD_Boss_Mit_DifficultyListSet,
-                        Generics.SelectWhatKindOfContentThisOptionAppliesTo);
+                        "Select which difficulties the ability should be used in:");
                     DrawAdditionalBoolChoice(PLD_Mitigation_Boss_Sentinel_First, "Use Sentinel First", "Uses Sentinel before Rampart");
                     break;
 
                 case Preset.PLD_Mitigation_Boss_Bulwark:
                     DrawDifficultyMultiChoice(PLD_Mitigation_Boss_Bulwark_Difficulty, PLD_Boss_Mit_DifficultyListSet,
-                        Generics.SelectWhatKindOfContentThisOptionAppliesTo);
+                        "Select which difficulties the ability should be used in:");
                     DrawSliderFloat(1, 100, PLD_Mitigation_Boss_Bulwark_Threshold, "Will use Bulwark as extra tankbuster mitigation if under this HP%", decimals: 0);
                     DrawAdditionalBoolChoice(PLD_Mitigation_Boss_Bulwark_Align, "Align Bulwark", "Tries to align Bulwark with Rampart for tankbusters.");
                     break;
@@ -105,18 +102,18 @@ internal partial class PLD
                 // Fight or Flight
                 case Preset.PLD_ST_AdvancedMode_FoF:
                     DrawSliderInt(0, 50, PLD_ST_FoF_HPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
 
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(PLD_ST_FoF_BossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only apply the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(PLD_ST_FoF_BossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Apply the HP check above to all enemies.", 1);
                     ImGui.Unindent();
                     break;
 
@@ -124,23 +121,23 @@ internal partial class PLD
                 // Intervene
                 case Preset.PLD_ST_AdvancedMode_Intervene:
                     DrawHorizontalRadioButton(PLD_ST_Intervene_Movement,
-                        Generics.StationaryOnly, FormatAndCache(Generics.UseActionOnlyWhileStationary, Intervene.ActionName()), 0);
+                        "Stationary Only", "Uses Intervene only while stationary", 0);
 
                     DrawHorizontalRadioButton(PLD_ST_Intervene_Movement,
-                        Generics.AnyMovement, FormatAndCache(Generics.Uses0RegardlessOfAnyMovementConditions, Intervene.ActionName()), 1);
+                        "Any Movement", "Uses Intervene regardless of any movement conditions.\nNOTE: This could possibly get you killed", 1);
 
                     ImGui.Spacing();
                     if (PLD_ST_Intervene_Movement == 0)
                     {
                         DrawSliderFloat(0, 3, PLD_ST_InterveneTimeStill,
-                            Generics.StationaryDelayCheck, decimals: 1);
+                            " Stationary Delay Check (in seconds):", decimals: 1);
                     }
 
                     DrawSliderInt(0, 2, PLD_ST_Intervene_Charges,
-                        Generics.HowManyChargesToKeepReady);
+                        " How many charges to keep ready?\n (0 = Use All)");
 
                     DrawSliderInt(1, 20, PLD_ST_Intervene_Distance,
-                        Generics.UseWhenDistanceFromTargetIsLessThanOrEqualTo);
+                        " Use when Distance from target is less than or equal to:");
                     break;
 
                 // Shield Lob
@@ -169,23 +166,23 @@ internal partial class PLD
 
                 case Preset.PLD_AoE_AdvancedMode_Intervene:
                     DrawHorizontalRadioButton(PLD_AoE_Intervene_Movement,
-                        Generics.StationaryOnly, FormatAndCache(Generics.UseActionOnlyWhileStationary, Intervene.ActionName()), 0);
+                        "Stationary Only", "Uses Intervene only while stationary", 0);
 
                     DrawHorizontalRadioButton(PLD_AoE_Intervene_Movement,
-                        Generics.AnyMovement, FormatAndCache(Generics.Uses0RegardlessOfAnyMovementConditions, Intervene.ActionName()), 1);
+                        "Any Movement", "Uses Intervene regardless of any movement conditions.\nNOTE: This could possibly get you killed", 1);
 
                     ImGui.Spacing();
                     if (PLD_AoE_Intervene_Movement == 0)
                     {
                         DrawSliderFloat(0, 3, PLD_AoE_InterveneTimeStill,
-                            Generics.StationaryDelayCheck, decimals: 1);
+                            " Stationary Delay Check (in seconds):", decimals: 1);
                     }
 
                     DrawSliderInt(0, 2, PLD_AoE_Intervene_Charges,
-                        Generics.HowManyChargesToKeepReady);
+                        " How many charges to keep ready?\n (0 = Use All)");
 
                     DrawSliderInt(1, 20, PLD_AoE_Intervene_Distance,
-                        Generics.UseWhenDistanceFromTargetIsLessThanOrEqualTo);
+                        " Use when Distance from target is less than or equal to:");
                     break;
 
                 case Preset.PLD_AoE_AdvancedMode_MP_Reserve:
@@ -262,7 +259,7 @@ internal partial class PLD
                     );
 
                     DrawSliderInt(1, 100, PLD_Mit_HallowedGround_Max_Health,
-                        Generics.StopFriendlyHpPercent100,
+                        "Player HP% to be \nless than or equal to:",
                         200, SliderIncrements.Fives);
                     break;
 
@@ -313,7 +310,7 @@ internal partial class PLD
                 case Preset.PLD_Mit_ArmsLength:
                     ImGui.Indent();
                     DrawHorizontalRadioButton(PLD_Mit_ArmsLength_Boss,
-                        Generics.AllEnemies, "Will use Arm's Length regardless of the type of enemy.", (int)BossAvoidance.Off, 125f);
+                        "All Enemies", "Will use Arm's Length regardless of the type of enemy.", (int)BossAvoidance.Off, 125f);
 
                     DrawHorizontalRadioButton(PLD_Mit_ArmsLength_Boss,
                         "Avoid Bosses", "Will try not to use Arm's Length when in a boss fight.", (int)BossAvoidance.On, 125f);
@@ -335,7 +332,7 @@ internal partial class PLD
 
                 case Preset.PLD_Mit_Clemency:
                     DrawSliderInt(1, 100, PLD_Mit_Clemency_Health,
-                        Generics.StopFriendlyHpPercent100,
+                        "HP% to use at or below (100 = Disable check)",
                         sliderIncrement: SliderIncrements.Ones);
 
                     DrawPriorityInput(PLD_Mit_Priorities,

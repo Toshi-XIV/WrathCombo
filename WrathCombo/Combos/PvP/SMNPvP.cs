@@ -121,7 +121,7 @@ internal static class SMNPvP
                     return MountainBuster;
 
                 // Garuda (check Slipstream cooldown)
-                if (IsEnabled(Preset.SMNPvP_BurstMode_Slipstream) && IsOffCooldown(Slipstream))
+                if (IsEnabled(Preset.SMNPvP_BurstMode_Slipstream) && IsOffCooldown(Slipstream) && !IsMoving())
                     return Slipstream;
             }
             return actionID;

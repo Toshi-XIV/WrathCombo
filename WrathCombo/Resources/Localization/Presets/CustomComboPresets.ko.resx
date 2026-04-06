@@ -3126,6 +3126,12 @@ Balance에서 권장하는 방식이지만, 글쿨 밀림(Drift)이 발생할 �
     <value>보스전이 아닐 때 콤보에 방어 기재를 추가합니다. 별도의 설명이 없는 한 생존기를 중첩해서 사용하지 않습니다.
 몰이 중에는 이동을 멈추지 않는 한 첫 15초 동안은 생존기를 사용하지 않습니다.</value>
   </data>
+  <data name="DRK_Mitigation_NonBoss_BlackestNight_Name" xml:space="preserve">
+    <value>흑야 옵션</value>
+  </data>
+  <data name="DRK_Mitigation_NonBoss_BlackestNight_Desc" xml:space="preserve">
+    <value>사용 가능할 때 '흑야'를 사용합니다. 다른 생존기와 중첩해서 사용할 수 있습니다.</value>
+  </data>
   <data name="DRK_Mitigation_NonBoss_LivingDead_Name" xml:space="preserve">
     <value>산송장 옵션</value>
   </data>
@@ -11245,17 +11251,5 @@ GCD를 소모하며 기절 면역 적에게 무의미할 수 있습니다.
   </data>
   <data name="WAR_NascentFlash_TT_Desc" xml:space="preserve">
     <value>현재 적 대상이 노리고 있는 대상이 본인이나 파티원이 아닐 경우, 그 대상에게 '원초의 용맹'을 사용합니다.</value>
-  </data>
-  <data name="DRK_AoE_CD_BringerBurst_Desc" xml:space="preserve">
-      <value>'칠흑 도래' 스택을 아껴두었다가 짝수 분 버스트 구간('경멸' 사용 후)에 집중 사용합니다.</value>
-  </data>
-  <data name="DRK_AoE_CD_BringerBurst_Name" xml:space="preserve">
-      <value>칠흑 도래 버스트 옵션</value>
-  </data>
-  <data name="DRK_AoE_CD_Darkness_Desc" xml:space="preserve">
-      <value>'어둠 감염'을 감염 지대 지속 시간의 후반부에 사용하도록 설정합니다.</value>
-  </data>
-  <data name="DRK_AoE_CD_Darkness_Name" xml:space="preserve">
-      <value>어둠 감염 옵션</value>
   </data>
 </root>

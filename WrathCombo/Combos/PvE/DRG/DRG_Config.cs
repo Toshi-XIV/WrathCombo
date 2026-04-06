@@ -1,8 +1,6 @@
 using Dalamud.Interface.Colors;
 using WrathCombo.CustomComboNS.Functions;
 using WrathCombo.Extensions;
-using WrathCombo.Resources.Localization.JobConfigs;
-using WrathCombo.Window;
 using static WrathCombo.Window.Functions.UserConfig;
 namespace WrathCombo.Combos.PvE;
 
@@ -16,53 +14,52 @@ internal partial class DRG
             {
                 case Preset.DRG_ST_Opener:
                     DrawHorizontalRadioButton(DRG_SelectedOpener,
-                        Generics.StandardOpener, Generics.UsesStandardOpener, 0);
+                        "Standard opener", "Uses Standard opener", 0);
 
                     DrawHorizontalRadioButton(DRG_SelectedOpener,
-                        Text.FormatAndCache(Generics.Action_Opener, PiercingTalon.ActionName()),
-                        Text.FormatAndCache(Generics.Use_0_Opener, PiercingTalon.ActionName()), 1);
+                        $"{PiercingTalon.ActionName()} opener", $"Uses {PiercingTalon.ActionName()} opener", 1);
                     ImGui.NewLine();
                     DrawBossOnlyChoice(DRG_BalanceContent);
                     break;
 
                 case Preset.DRG_ST_BattleLitany:
                     DrawSliderInt(0, 50, DRG_ST_BattleLitanyHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(DRG_ST_BattleLitanyBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(DRG_ST_BattleLitanyBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
                     ImGui.Unindent();
                     break;
 
                 case Preset.DRG_ST_LanceCharge:
                     DrawSliderInt(0, 50, DRG_ST_LanceChargeHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(DRG_ST_LanceChargeBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(DRG_ST_LanceChargeBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
                     ImGui.Unindent();
                     break;
 
                 case Preset.DRG_ST_HighJump:
                     DrawHorizontalMultiChoice(DRG_ST_JumpMovingOrInRanged,
-                        Generics.NoMovement, $"Only uses {Jump.ActionName()} when not moving.", 2, 0);
+                        "No movement", $"Only uses {Jump.ActionName()} when not moving.", 2, 0);
 
                     DrawHorizontalMultiChoice(DRG_ST_JumpMovingOrInRanged,
-                        Generics.InMeleeRange, $"Only uses {Jump.ActionName()} when in melee range.", 2, 1);
+                        "In Melee range", $"Only uses {Jump.ActionName()} when in melee range.", 2, 1);
                     break;
 
                 case Preset.DRG_ST_Mirage:
@@ -72,48 +69,48 @@ internal partial class DRG
 
                 case Preset.DRG_ST_Geirskogul:
                     DrawSliderInt(0, 100, DRG_ST_GeirskogulBossOption,
-                        Generics.BossOnlyHpPercent);
+                        "Bosses Only. Stop using at Enemy HP %.");
 
                     DrawSliderInt(0, 100, DRG_ST_GeirskogulBossAddsOption,
-                        Generics.BossEncounterNonBossHpPercent);
+                        "Boss Encounter Non Bosses. Stop using at Enemy HP %.");
 
                     DrawSliderInt(0, 100, DRG_ST_GeirskogulTrashOption,
-                        Generics.NonBossHpPercent);
+                        "Non boss encounter. Stop using at Enemy HP %.");
                     break;
 
                 case Preset.DRG_ST_DragonfireDive:
                     DrawSliderInt(0, 50, DRG_ST_DragonfireDiveHPOption,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using at Enemy HP %. Set to Zero to disable this check.");
 
                     ImGui.Indent();
                     ImGui.TextColored(ImGuiColors.DalamudYellow,
-                        Generics.EnemyTypeCheck);
+                        "Select what kind of enemies the HP check should be applied to:");
 
                     DrawHorizontalRadioButton(DRG_ST_DragonfireDiveBossOption,
-                        Generics.NonBosses, Generics.HPCheckNonBosses, 0);
+                        "Non-Bosses", "Only applies the HP check above to non-bosses.", 0);
 
                     DrawHorizontalRadioButton(DRG_ST_DragonfireDiveBossOption,
-                        Generics.AllEnemies, Generics.HPCheckAllEnemies, 1);
+                        "All Enemies", "Applies the HP check above to all enemies.", 1);
                     ImGui.Unindent();
 
                     DrawHorizontalMultiChoice(DRG_ST_DragonfireDiveMovingOrInRanged,
-                        Generics.NoMovement, $"Only uses {DragonfireDive.ActionName()} when not moving.", 2, 0);
+                        "No movement", $"Only uses {DragonfireDive.ActionName()} when not moving.", 2, 0);
 
                     DrawHorizontalMultiChoice(DRG_ST_DragonfireDiveMovingOrInRanged,
-                        Generics.InMeleeRange, $"Only uses {DragonfireDive.ActionName()} when in melee range.", 2, 1);
+                        "In Melee range", $"Only uses {DragonfireDive.ActionName()} when in melee range.", 2, 1);
                     break;
 
                 case Preset.DRG_ST_Stardiver:
                     DrawHorizontalMultiChoice(DRG_ST_StardiverMovingOrInRanged,
-                        Generics.NoMovement, $"Only uses {Stardiver.ActionName()} when not moving.", 2, 0);
+                        "No movement", $"Only uses {Stardiver.ActionName()} when not moving.", 2, 0);
 
                     DrawHorizontalMultiChoice(DRG_ST_StardiverMovingOrInRanged,
-                        Generics.InMeleeRange, $"Only uses {Stardiver.ActionName()} when in melee range.", 2, 1);
+                        "In Melee range", $"Only uses {Stardiver.ActionName()} when in melee range.", 2, 1);
                     break;
 
                 case Preset.DRG_TrueNorthDynamic:
                     DrawSliderInt(0, 1, DRG_ManualTN,
-                        Generics.ChargePool);
+                        "How many charges to keep for manual usage.");
                     break;
 
                 case Preset.DRG_ST_ComboHeals:
@@ -126,44 +123,44 @@ internal partial class DRG
 
                 case Preset.DRG_AoE_BattleLitany:
                     DrawSliderInt(0, 100, DRG_AoE_BattleLitanyHPTreshold,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using when target HP% is at or below (Set to 0 to Disable This Check)");
                     break;
 
                 case Preset.DRG_AoE_LanceCharge:
                     DrawSliderInt(0, 100, DRG_AoE_LanceChargeHPTreshold,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using when target HP% is at or below (Set to 0 to Disable This Check)");
                     break;
 
                 case Preset.DRG_AoE_Geirskogul:
                     DrawSliderInt(0, 100, DRG_AoE_GeirskogulHPTreshold,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using when target HP% is at or below (Set to 0 to Disable This Check)");
                     break;
 
                 case Preset.DRG_AoE_HighJump:
                     DrawHorizontalMultiChoice(DRG_AoE_JumpMovingOrInRanged,
-                        Generics.NoMovement, $"Only uses {Jump.ActionName()} when not moving.", 2, 0);
+                        "No movement", $"Only uses {Jump.ActionName()} when not moving.", 2, 0);
 
                     DrawHorizontalMultiChoice(DRG_AoE_JumpMovingOrInRanged,
-                        Generics.InMeleeRange, $"Only uses {Jump.ActionName()} when in melee range.", 2, 1);
+                        "In Melee range", $"Only uses {Jump.ActionName()} when in melee range.", 2, 1);
                     break;
 
                 case Preset.DRG_AoE_DragonfireDive:
                     DrawSliderInt(0, 100, DRG_AoE_DragonfireDiveHPTreshold,
-                        Generics.StopEnemyHpPercent);
+                        "Stop using when target HP% is at or below (Set to 0 to Disable This Check)");
 
                     DrawHorizontalMultiChoice(DRG_AoE_DragonfireDiveMovingOrInRanged,
-                        Generics.NoMovement, $"Only uses {DragonfireDive.ActionName()} when not moving.", 2, 0);
+                        "No movement", $"Only uses {DragonfireDive.ActionName()} when not moving.", 2, 0);
 
                     DrawHorizontalMultiChoice(DRG_AoE_DragonfireDiveMovingOrInRanged,
-                        Generics.InMeleeRange, $"Only uses {DragonfireDive.ActionName()} when in melee range.", 2, 1);
+                        "In Melee range", $"Only uses {DragonfireDive.ActionName()} when in melee range.", 2, 1);
                     break;
 
                 case Preset.DRG_AoE_Stardiver:
                     DrawHorizontalMultiChoice(DRG_AoE_StardiverMovingOrInRanged,
-                        Generics.NoMovement, $"Only uses {Stardiver.ActionName()} when not moving.", 2, 0);
+                        "No movement", $"Only uses {Stardiver.ActionName()} when not moving.", 2, 0);
 
                     DrawHorizontalMultiChoice(DRG_AoE_StardiverMovingOrInRanged,
-                        Generics.InMeleeRange, $"Only uses {Stardiver.ActionName()} when in melee range.", 2, 1);
+                        "In Melee range", $"Only uses {Stardiver.ActionName()} when in melee range.", 2, 1);
                     break;
 
                 case Preset.DRG_AoE_ComboHeals:

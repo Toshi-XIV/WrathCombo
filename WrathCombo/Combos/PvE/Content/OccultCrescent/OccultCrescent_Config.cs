@@ -1,7 +1,6 @@
 ﻿using Dalamud.Interface.Colors;
 using ECommons.ImGuiMethods;
 using WrathCombo.CustomComboNS.Functions;
-using WrathCombo.Resources.Localization.JobConfigs;
 using WrathCombo.Window.Functions;
 using static WrathCombo.Window.Functions.UserConfig;
 namespace WrathCombo.Combos.PvE;
@@ -39,43 +38,43 @@ internal partial class OccultCrescent
             {
                 case Preset.Phantom_Freelancer_OccultResuscitation:
                     DrawSliderInt(1, 100, Phantom_Freelancer_Resuscitation_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
 
                 case Preset.Phantom_Geomancer_Sunbath:
                     DrawSliderInt(1, 100, Phantom_Geomancer_Sunbath_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
 
                 case Preset.Phantom_Knight_PhantomGuard:
                     DrawSliderInt(1, 100, Phantom_Knight_PhantomGuard_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
                 case Preset.Phantom_Knight_Pray:
                     DrawSliderInt(1, 100, Phantom_Knight_Pray_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
                 case Preset.Phantom_Knight_OccultHeal:
                     DrawSliderInt(1, 100, Phantom_Knight_OccultHeal_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
                 case Preset.Phantom_Knight_Pledge:
                     DrawSliderInt(1, 100, Phantom_Knight_Pledge_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
                 case Preset.Phantom_Bard_MightyMarch:
                     DrawSliderInt(1, 100, Phantom_Bard_MightyMarch_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
 
                 case Preset.Phantom_Monk_OccultChakra:
                     DrawSliderInt(1, 100, Phantom_Monk_OccultChakra_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
 
                 case Preset.Phantom_Oracle_Blessing:
                     DrawSliderInt(1, 100, Phantom_Oracle_Blessing_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
 
                 case Preset.Phantom_Oracle_Starfall:
@@ -85,7 +84,7 @@ internal partial class OccultCrescent
 
                 case Preset.Phantom_Ranger_OccultUnicorn:
                     DrawSliderInt(1, 100, Phantom_Ranger_OccultUnicorn_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
 
                 case Preset.Phantom_Ranger_PhantomAim:
@@ -100,7 +99,7 @@ internal partial class OccultCrescent
 
                 case Preset.Phantom_Chemist_OccultPotion:
                     DrawSliderInt(1, 100, Phantom_Chemist_OccultPotion_Health,
-                        Generics.StopFriendlyHpPercent100, 200);
+                        "Player HP% to be \nless than or equal to:", 200);
                     break;
 
                 case Preset.Phantom_Chemist_OccultEther:

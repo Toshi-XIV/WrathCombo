@@ -766,7 +766,7 @@ public static class UserConfig
         }
 
         DrawHorizontalBoolRadioButton(
-            config, Generics.AllContent,
+            config, "All Content",
             "Applies to all content in the game.",
             choice: 0,
             descriptionColor: ImGuiColors.DalamudYellow

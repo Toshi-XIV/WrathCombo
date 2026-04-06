@@ -470,19 +470,19 @@ public static class ActionWatching
                     Service.ActionReplacer.EnableActionReplacingIfRequired();
 
                 var targetObject = targetId.GetObject();
-                if (targetObject is null && targetId != 0xE000_0000)
+                if (targetObject is null)
                 {
                     Service.ActionReplacer.EnableActionReplacingIfRequired();
                     return UseActionHook.Original(actionManager, actionType, actionId, targetId, extraParam, mode, comboRouteId, outOptAreaTargeted);
                 }
 
-                if (changed && !areaTargeted) //Check if the action can be used on the target, and if not revert to original
-                    if (!ActionManager.CanUseActionOnTarget(replacedWith,
-                            targetObject.Struct()))
-                        targetId = originalTargetId;
+                //if (changed && !areaTargeted) //Check if the action can be used on the target, and if not revert to original
+                if (!ActionManager.CanUseActionOnTarget(replacedWith,
+                        targetObject.Struct()))
+                    targetId = originalTargetId;
 
                 // Support Retargeted ground actions
-                if ((areaTargeted && changed) || AutoRotationController.WouldLikeToGroundTarget)
+                if ((changed && areaTargeted) || AutoRotationController.WouldLikeToGroundTarget)
                 {
                     var location = Player.Position;
                     replacedWith = Service.ActionReplacer.LastActionInvokeFor.TryGetValue(actionId, out var replacedGT) ? replacedGT : replacedWith;

@@ -287,7 +287,7 @@ internal partial class DRK : Tank
                 return Role.Interject;
 
             if (IsEnabled(Preset.DRK_oGCD_Delirium) &&
-                ActionReady(OriginalHook(BloodWeapon)))
+                ActionReady(BloodWeapon))
                 return OriginalHook(Delirium);
 
             if (IsEnabled(Preset.DRK_oGCD_Shadow) &&

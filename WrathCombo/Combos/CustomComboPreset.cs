@@ -1610,7 +1610,31 @@ public enum Preset
     [ConflictingCombos(BLM_Retargetting_Aetherial_Manipulation)]
     [JobInfo(Job.BLM)]
     BLM_Aetherial_Manipulation = 2055,
+    
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Tweaks = 2072,
+    
+    [ParentCombo(BLM_Toshi_Tweaks)]
+    [ReplaceSkill(BLM.Fire4)]
+    [ConflictingCombos(BLM_Fire4)]
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Fire4 = 2073,
 
+    [ParentCombo(BLM_Toshi_Tweaks)]
+    [ReplaceSkill(BLM.Blizzard4)]
+    [ConflictingCombos(BLM_Blizzard4toDespair)]
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Blizzard4 = 2074,
+    
+    [ParentCombo(BLM_Toshi_Tweaks)]
+    [ReplaceSkill(BLM.Blizzard3)]
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Blizzard3 = 2075,
+    
+    [ParentCombo(BLM_Toshi_Tweaks)]
+    [ReplaceSkill(BLM.Xenoglossy)]
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Xeno = 2076,
     #endregion
 
     // Last value ST = 2117
@@ -2548,17 +2572,9 @@ public enum Preset
 
     #endregion
 
-    #region Shadowbringer Options
-
     [ParentCombo(DRK_AoE_CDs)]
     [JobInfo(Job.DRK)]
     DRK_AoE_CD_Bringer = 5057,
-    
-    [ParentCombo(DRK_AoE_CD_Bringer)]
-    [JobInfo(Job.DRK)]
-    DRK_AoE_CD_BringerBurst = 5076,
-
-    #endregion
 
     #region Salt Options
 
@@ -2569,10 +2585,6 @@ public enum Preset
     [ParentCombo(DRK_AoE_CD_Salt)]
     [JobInfo(Job.DRK)]
     DRK_AoE_CD_SaltStill = 5059,
-
-    [ParentCombo(DRK_AoE_CDs)]
-    [JobInfo(Job.DRK)]
-    DRK_AoE_CD_Darkness = 5077,
 
     #endregion
 
@@ -2619,7 +2631,7 @@ public enum Preset
     #endregion
 
     #endregion
-    // Last value = 5077
+    // Last value = 5075
 
     #region Advanced Mitigation
     [JobInfo(Job.DRK)]
