@@ -1610,12 +1610,36 @@ public enum Preset
     [ConflictingCombos(BLM_Retargetting_Aetherial_Manipulation)]
     [JobInfo(Job.BLM)]
     BLM_Aetherial_Manipulation = 2055,
+    
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Tweaks = 2072,
+    
+    [ParentCombo(BLM_Toshi_Tweaks)]
+    [ReplaceSkill(BLM.Fire4)]
+    [ConflictingCombos(BLM_Fire4)]
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Fire4 = 2073,
 
+    [ParentCombo(BLM_Toshi_Tweaks)]
+    [ReplaceSkill(BLM.Blizzard4)]
+    [ConflictingCombos(BLM_Blizzard4toDespair)]
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Blizzard4 = 2074,
+    
+    [ParentCombo(BLM_Toshi_Tweaks)]
+    [ReplaceSkill(BLM.Blizzard3)]
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Blizzard3 = 2075,
+    
+    [ParentCombo(BLM_Toshi_Tweaks)]
+    [ReplaceSkill(BLM.Xenoglossy)]
+    [JobInfo(Job.BLM)]
+    BLM_Toshi_Xeno = 2076,
     #endregion
 
     // Last value ST = 2117
     //Last Value AoE = 2213
-    //Last Value misc = 2071
+    //Last Value misc = 2076
 
     #endregion
 
