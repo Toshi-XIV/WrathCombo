@@ -69,7 +69,6 @@ public enum Preset
     ALL_Healer_Menu = 100098,
 
     [ReplaceSkill(AST.Ascend, WHM.Raise, SCH.Resurrection, SGE.Egeiro)]
-    [ConflictingCombos(AST_Raise_Alternative, SCH_Raise, SGE_Raise, WHM_Raise)]
     [ParentCombo(ALL_Healer_Menu)]
     [JobInfo(Job.ADV)]
     ALL_Healer_Raise = 100010,
@@ -1291,7 +1290,6 @@ public enum Preset
     AST_Benefic = 1002,
 
     [ReplaceSkill(RoleActions.Magic.Swiftcast)]
-    [ConflictingCombos(ALL_Healer_Raise)]
     [JobInfo(Job.AST)]
     AST_Raise_Alternative = 1003,
 
@@ -5886,7 +5884,6 @@ public enum Preset
     SGE_Rhizo = 14037,
 
     [ReplaceSkill(RoleActions.Magic.Swiftcast)]
-    [ConflictingCombos(ALL_Healer_Raise)]
     [JobInfo(Job.SGE)]
     SGE_Raise = 14040,
 
@@ -6670,7 +6667,6 @@ public enum Preset
     SCH_Fairy_Combo_Consolation = 16017,
 
     [ReplaceSkill(RoleActions.Magic.Swiftcast)]
-    [ConflictingCombos(ALL_Healer_Raise)]
     [JobInfo(Job.SCH)]
     SCH_Raise = 16032,
 
@@ -7886,7 +7882,6 @@ public enum Preset
     #region Small Features
 
     [ReplaceSkill(RoleActions.Magic.Swiftcast)]
-    [ConflictingCombos(ALL_Healer_Raise)]
     [JobInfo(Job.WHM)]
     WHM_Raise = 19004,
 
