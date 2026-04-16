@@ -772,7 +772,7 @@ internal unsafe class AutoRotationController
                 {
                     var castTime = ActionManager.GetAdjustedCastTime(ActionType.Action, outAct);
                     bool orbwalking = cfg.OrbwalkerIntegration && OrbwalkerIPC.CanOrbwalk;
-                    if (TimeMoving.TotalMilliseconds > 0 && castTime > 0 && !orbwalking)
+                    if (TimeMoving.TotalMilliseconds > 0 && castTime > 0 && !orbwalking && outAct is not 41469 and not 29391)
                         return false;
 
                     var targetId = player.GameObjectId;
@@ -830,7 +830,7 @@ internal unsafe class AutoRotationController
                 bool switched = SwitchOnDChole(attributes, outAct, ref target);
                 var castTime = ActionManager.GetAdjustedCastTime(ActionType.Action, outAct);
                 bool orbwalking = cfg.OrbwalkerIntegration && OrbwalkerIPC.CanOrbwalk;
-                if (TimeMoving.TotalMilliseconds > 0 && castTime > 0 && !orbwalking)
+                if (TimeMoving.TotalMilliseconds > 0 && castTime > 0 && !orbwalking && outAct is not 41469 and not 29391)
                 {
                     OverrideTarget = null;
                     return false;
@@ -885,10 +885,16 @@ internal unsafe class AutoRotationController
 
             var target = GetSingleTarget(mode);
             OverrideTarget = target;
-            var outAct = OriginalHook(InvokeCombo(preset, attributes, ref gameAct, target));
+            var invokedAct = InvokeCombo(preset, attributes, ref gameAct, target);
+            var outAct = OriginalHook(invokedAct);
+            var movementExempt = outAct is 41469 or 29391 || invokedAct is 41469 or 29391;
             if (!CanQueue(outAct))
             {
-                return false;
+                if (!movementExempt) return false;
+                var status = ActionManager.Instance()->GetActionStatus(ActionType.Action, outAct, checkRecastActive: false, checkCastingActive: false);
+                var cooldownOk = HasCharges(outAct) || (GetAttackType(outAct) != ActionAttackType.Ability && GetCooldownRemainingTime(outAct) <= RemainingGCD + BaseActionQueue);
+                if (!cooldownOk || status is not (0 or 580 or 581 or 582))
+                    return false;
             }
 
             bool switched = SwitchOnDChole(attributes, outAct, ref target);
@@ -927,7 +933,7 @@ internal unsafe class AutoRotationController
 
             var castTime = ActionManager.GetAdjustedCastTime(ActionType.Action, outAct);
             bool orbwalking = cfg.OrbwalkerIntegration && OrbwalkerIPC.CanOrbwalk;
-            if (TimeMoving.TotalMilliseconds > 0 && castTime > 0 && !orbwalking)
+            if (TimeMoving.TotalMilliseconds > 0 && castTime > 0 && !orbwalking && outAct is not 41469 and not 29391)
             {
                 OverrideTarget = null;
                 return false;
