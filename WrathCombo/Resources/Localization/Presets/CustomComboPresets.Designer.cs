@@ -2767,7 +2767,7 @@ namespace WrathCombo.Resources.Localization.Presets {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adds Manaward to the rotation when below HP Treshold and when raidwide is casting..
+        ///   Looks up a localized string similar to Adds Manaward to the rotation when solo and below HP treshold or when a raidwide is casting..
         /// </summary>
         internal static string BLM_ST_Manaward_Desc {
             get {
@@ -10207,18 +10207,18 @@ namespace WrathCombo.Resources.Localization.Presets {
         /// <summary>
         ///   Looks up a localized string similar to Locks out Aurora if Aurora&apos;s effect is on the target by replacing it with Savage Blade..
         /// </summary>
-        internal static string GNB_AuroraProtection_Desc {
+        internal static string GNB_AuroraFeatures_Desc {
             get {
-                return ResourceManager.GetString("GNB_AuroraProtection_Desc", resourceCulture);
+                return ResourceManager.GetString("GNB_AuroraFeatures_Desc", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Aurora Protection Feature.
         /// </summary>
-        internal static string GNB_AuroraProtection_Name {
+        internal static string GNB_AuroraFeatures_Name {
             get {
-                return ResourceManager.GetString("GNB_AuroraProtection_Name", resourceCulture);
+                return ResourceManager.GetString("GNB_AuroraFeatures_Name", resourceCulture);
             }
         }
         
@@ -12184,7 +12184,7 @@ namespace WrathCombo.Resources.Localization.Presets {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Replace Hot Shot, Drill, Air Anchor, Chainsaw and Excavator depending on which is on cooldown..
+        ///   Looks up a localized string similar to Replace Hot Shot with Drill, Air Anchor, Chainsaw and Excavator depending on which is on cooldown..
         /// </summary>
         internal static string MCH_BigHitter_Desc {
             get {
@@ -20358,6 +20358,60 @@ namespace WrathCombo.Resources.Localization.Presets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Will retarget Vercure according to following Suboptions.
+        /// </summary>
+        internal static string RDM_RetargetVercure_Desc {
+            get {
+                return ResourceManager.GetString("RDM_RetargetVercure_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Will Heal Lowest Health Party member until you fall below set threshold.
+        /// </summary>
+        internal static string RDM_RetargetVercure_LowHP_Desc {
+            get {
+                return ResourceManager.GetString("RDM_RetargetVercure_LowHP_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low hp Vercure Option.
+        /// </summary>
+        internal static string RDM_RetargetVercure_LowHP_Name {
+            get {
+                return ResourceManager.GetString("RDM_RetargetVercure_LowHP_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds UI mouseover to the priority. Above LowHP option..
+        /// </summary>
+        internal static string RDM_RetargetVercure_MO_Desc {
+            get {
+                return ResourceManager.GetString("RDM_RetargetVercure_MO_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mouseover Vercure Option.
+        /// </summary>
+        internal static string RDM_RetargetVercure_MO_Name {
+            get {
+                return ResourceManager.GetString("RDM_RetargetVercure_MO_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retarget Vercure Feature.
+        /// </summary>
+        internal static string RDM_RetargetVercure_Name {
+            get {
+                return ResourceManager.GetString("RDM_RetargetVercure_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Replaces Riposte with the basic melee combo..
         /// </summary>
         internal static string RDM_Riposte_Desc {
@@ -27655,6 +27709,24 @@ namespace WrathCombo.Resources.Localization.Presets {
         internal static string SMN_Raise_Retarget_Name {
             get {
                 return ResourceManager.GetString("SMN_Raise_Retarget_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retargets Rekindle to Target&apos;s Target &gt; Tank in need &gt; A party member in need &gt; Self.
+        /// </summary>
+        internal static string SMN_Rekindle_Desc {
+            get {
+                return ResourceManager.GetString("SMN_Rekindle_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rekindle Retarget.
+        /// </summary>
+        internal static string SMN_Rekindle_Name {
+            get {
+                return ResourceManager.GetString("SMN_Rekindle_Name", resourceCulture);
             }
         }
         

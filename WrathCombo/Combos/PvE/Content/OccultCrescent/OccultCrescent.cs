@@ -229,7 +229,7 @@ internal partial class OccultCrescent
         }
 
         if (IsEnabledAndUsable(Preset.Phantom_Berserker_DeadlyBlow, DeadlyBlow) &&
-            GetStatusEffectRemainingTime(Buffs.PentupRage) <= 3f && HasStatusEffect(Buffs.PentupRage) && InActionRange(DeadlyBlow) && !CanWeaveNow)
+            GetStatusEffectRemainingTime(Buffs.PentupRage) <= 3f && (HasStatusEffect(Buffs.PentupRage) || CurrentJobLevel < 3) && InActionRange(DeadlyBlow) && !CanWeaveNow)
         {
             actionID = DeadlyBlow; // better when buff timer is low
             return true;
@@ -593,19 +593,22 @@ internal partial class OccultCrescent
         if (CanWeaveNow) return false;
 
         if (IsEnabledAndUsable(Preset.Phantom_MysticKnight_BlazingSpellblade, BlazingSpellblade) && !CanWeave() &&
+            HasBattleTarget() && InActionRange(BlazingSpellblade) &&
             (!HasStatusEffect(Buffs.BlazingSpellblade) || GetStatusEffectRemainingTime(Buffs.BlazingSpellblade) <= 15))
         {
             actionID = BlazingSpellblade;
             return true;
         }
 
-        if (IsEnabledAndUsable(Preset.Phantom_MysticKnight_HolySpellblade, HolySpellblade) && !CanWeave())
+        if (IsEnabledAndUsable(Preset.Phantom_MysticKnight_HolySpellblade, HolySpellblade) && !CanWeave() &&
+            HasBattleTarget() && InActionRange(BlazingSpellblade))
         {
             actionID = HolySpellblade;
             return true;
         }
 
-        if (IsEnabledAndUsable(Preset.Phantom_MysticKnight_SunderingSpellblade, SunderingSpellblade) && !CanWeave())
+        if (IsEnabledAndUsable(Preset.Phantom_MysticKnight_SunderingSpellblade, SunderingSpellblade) && !CanWeave() &&
+            HasBattleTarget() && InActionRange(SunderingSpellblade))
         {
             actionID = SunderingSpellblade;
             return true;

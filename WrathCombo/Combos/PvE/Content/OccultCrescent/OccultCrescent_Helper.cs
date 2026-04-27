@@ -1,5 +1,6 @@
 ﻿#region Dependencies
 
+using FFXIVClientStructs.FFXIV.Client.Game.InstanceContent;
 using System;
 using System.Reflection;
 using static WrathCombo.Combos.PvE.JobIDExtensions;
@@ -122,9 +123,10 @@ internal partial class OccultCrescent
         LongReach = 46596,
         BladeBlitz = 46597;
 
+    internal static unsafe int CurrentJobLevel => (nint)PublicContentOccultCrescent.GetInstance() == nint.Zero ? 0 : PublicContentOccultCrescent.GetInstance()->State.SupportJobLevels[PublicContentOccultCrescent.GetInstance()->State.CurrentSupportJob];
+
 
     internal static bool IsEnabledAndUsable(Preset preset, uint action) => IsEnabled(preset) && HasActionEquipped(action) && ActionReady(action);
-
 
     /// <summary>
     ///     Job identifiers and which Icon is their own. <br />
